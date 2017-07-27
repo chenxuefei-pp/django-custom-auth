@@ -1,0 +1,7 @@
+django
+django_redis_sessions
+django_redis_cache
+pymysql
+django_cors_headers
+pillow
+qrcode
