@@ -60,9 +60,10 @@ class User(AbstractBaseUser):
             'unique': _("A user with that mobile phone number already exists."),
         },
     )
-    uemail = models.CharField(max_length=64, unique=True, verbose_name=_('User e-mail'), null=True)
+    uemail = models.EmailField(unique=True, verbose_name=_('User e-mail'), null=True, blank=True)
+    unickname = models.CharField(max_length=128, unique=True, verbose_name=_('User Nickname'))
+
     urealname = models.CharField(max_length=128, verbose_name=_('User Realname'), null=True)
-    unickname = models.CharField(max_length=128, verbose_name=_('User Nickname'))
     ugender = models.IntegerField(verbose_name=_('User Gender'), choices=GenderChoice, default=0)
     ubirthday = models.DateField(verbose_name=_('User birthday'), default=date.today)
 
