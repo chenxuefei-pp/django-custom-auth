@@ -102,4 +102,4 @@ ENV/
 
 
 .idea/
-*.sqlte3
+*.sqlite3
