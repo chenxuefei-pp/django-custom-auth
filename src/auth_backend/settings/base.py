@@ -107,11 +107,12 @@ LOCALE_PATHS = (
 # Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.qq.com'
+
+EMAIL_HOST = ''
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = '395470486'
-EMAIL_HOST_PASSWORD = 'gphhjhncpkzgcahj'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 # aliyun settings
 
@@ -122,3 +123,5 @@ SMS_ACCESSKEY_SECRET = ''
 SMS_ENDPOINT = ''
 SMS_SIGN_NAME = ''
 SMS_TEMPLATE_CODE = ''
+
+DYNAMIC_ENV_FILE = os.path.join(BASE_DIR,'.env')
