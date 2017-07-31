@@ -21,7 +21,6 @@ class AliSMSBackend(BaseSMSBackend):
     '''
     阿里云SMS实现
     '''
-
     def __init__(self, AccessKeyID=None, AccessKeySecret=None,
                  Endpoint=None, **kwargs):
         super(AliSMSBackend, self).__init__(**kwargs)
@@ -38,7 +37,7 @@ class AliSMSBackend(BaseSMSBackend):
         topic_name = "sms.topic-cn-shenzhen"
         self.Topic = self.Account.get_topic(topic_name)
 
-    def send_message(self, message):
+    def send_message(self, message, phonenumber):
         pass
 
     def send_verify_code_message(self, username, verify_code, phonenumber):
@@ -62,6 +61,6 @@ class AliSMSBackend(BaseSMSBackend):
                     "Topic not exist, please create it."
                 )
             print(
-                "Publish Message Fail. Exception:%s" % e
+                "Publish Message Fail. Exception: %s" % e
             )
         pass
