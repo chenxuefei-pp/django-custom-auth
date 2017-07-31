@@ -20,6 +20,7 @@ class MobileUnicodeUsernameValidator(validators.RegexValidator):
     )
     flags = re.UNICODE if six.PY3 else 0
 
+
 @deconstructible
 class MobileAsciiUsernameValidator(validators.RegexValidator):
     regex = r'^1[3458]\d{9}$'
@@ -27,11 +28,3 @@ class MobileAsciiUsernameValidator(validators.RegexValidator):
         'Enter a valid mobile phone number. This value may contain only 13 number.'
     )
     flags = re.ASCII if six.PY3 else 0
-
-
-
-if __name__ == '__main__':
-    regex = r'^1[3458]\d{9}$'
-    mo = u'15102801312'
-    f = re.compile(regex).match(mo)
-    print(f)

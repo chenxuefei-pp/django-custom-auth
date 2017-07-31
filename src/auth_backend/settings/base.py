@@ -42,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'auth_backend.urls'
@@ -101,3 +102,23 @@ USE_TZ = False
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+
+
+# Email Settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = '395470486'
+EMAIL_HOST_PASSWORD = 'gphhjhncpkzgcahj'
+
+# aliyun settings
+
+# SMS Settings
+
+SMS_ACCESSKEY_ID = ''
+SMS_ACCESSKEY_SECRET = ''
+SMS_ENDPOINT = ''
+SMS_SIGN_NAME = ''
+SMS_TEMPLATE_CODE = ''

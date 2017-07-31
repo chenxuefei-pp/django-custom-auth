@@ -5,7 +5,7 @@
     Created on : 2017/7/27 9:43
 '''
 
-from auth_backend.settings.base import *
+from auth_backend.settings.dynconfig import *
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

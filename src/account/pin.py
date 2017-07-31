@@ -5,6 +5,8 @@
     Created on : 2017/7/28 18:21
 '''
 
+# 生成二维码图片
+
 import random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 

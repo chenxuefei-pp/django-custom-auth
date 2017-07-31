@@ -2,6 +2,7 @@ from datetime import date, datetime
 
 import six
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from six import python_2_unicode_compatible
@@ -36,13 +37,13 @@ class UserManager(BaseUserManager):
             umobile,
             password=password,
         )
-        user.is_admin = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
 
 @python_2_unicode_compatible
-class User(AbstractBaseUser):
+class User(AbstractBaseUser,PermissionsMixin):
     GenderChoice = (
         (0, _('Male')),
         (1, _('Female'))
@@ -75,7 +76,6 @@ class User(AbstractBaseUser):
     ubio = models.TextField(verbose_name=_('User BIO'), default='')
 
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
 
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
 
@@ -100,18 +100,8 @@ class User(AbstractBaseUser):
         return self.urealname
         pass
 
-    def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
-
-    def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
-        return True
-
     @property
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        return self.is_admin
+        return self.is_superuser
