@@ -5,7 +5,9 @@
     Created on : 2017/7/27 9:46
 '''
 
-from auth_backend.settings.dynconfig import *
+from auth_backend.settings.base import *
+
+DEBUG = False
 
 ###### MYSQL #####
 MYSQL_HOST = os.getenv('DB_PORT_3306_TCP_ADDR') or 'localhost'

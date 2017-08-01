@@ -4,10 +4,17 @@
     Email : chenxuefei_pp@163.com
     Created on : 2017/7/31 18:23
 '''
-import sys
 
-from auth_backend.settings.base import *
+# 动态读取Config配置文件
+
+import sys
+import os
+
 from backports.configparser import ConfigParser
+# ROOT路径
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+DYNAMIC_ENV_FILE = os.path.join(BASE_DIR,'.env')
 
 cf = ConfigParser()
 try:
@@ -16,6 +23,14 @@ except Exception as e:
     print('Read env file error: {0}'.format(e))
     sys.exit(-1)
     pass
+
+# Debug
+DEBUG = cf.getboolean('app', 'DEBUG')
+if DEBUG:
+    from auth_backend.settings.dev import *
+else:
+    from auth_backend.settings.prod import *
+
 
 # Aliyun SMS Setting
 SMS_ACCESSKEY_ID = cf.get("sms", "SMS_ACCESSKEY_ID")

@@ -9,8 +9,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 
 import os
 from django.core.wsgi import get_wsgi_application
-from env import *
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", ENV_DJANGO_SETTINGS)
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "auth_backend.settings.setting")
 
 application = get_wsgi_application()

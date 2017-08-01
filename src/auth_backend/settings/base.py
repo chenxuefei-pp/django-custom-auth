@@ -124,4 +124,3 @@ SMS_ENDPOINT = ''
 SMS_SIGN_NAME = ''
 SMS_TEMPLATE_CODE = ''
 
-DYNAMIC_ENV_FILE = os.path.join(BASE_DIR,'.env')
