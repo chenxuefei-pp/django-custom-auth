@@ -1,6 +1,13 @@
-from django.conf import settings
-from django.core.mail import send_mail
+import logging
 from django.shortcuts import render
 
+logger = logging.getLogger('django.request')
+
+
+class LoginView(object):
+    pass
+
+
 def login(request):
-    return render(request,'account/login.html')
+    logger.error('This is a logger')
+    return render(request, 'account/login.html')

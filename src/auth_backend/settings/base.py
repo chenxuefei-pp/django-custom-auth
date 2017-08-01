@@ -118,6 +118,8 @@ EMAIL_HOST_PASSWORD = ''
 
 # SMS Settings
 
+SMS_BACKEND = 'opackage.aliyun.sms.AliSMSBackend'
+
 SMS_ACCESSKEY_ID = ''
 SMS_ACCESSKEY_SECRET = ''
 SMS_ENDPOINT = ''
